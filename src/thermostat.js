@@ -1,7 +1,15 @@
 function Thermostat() {
-  this.status = {temp: 20};
+  this._temp = 20;
 }
 
-// Thermostat.prototype.temp = function() {
-//   return 20;
-// }
+Thermostat.prototype.up = function(number) {
+  this._temp += number;
+}
+
+Thermostat.prototype.down = function(number) {
+  this._temp -= number;
+}
+
+Thermostat.prototype.current = function() {
+  return this._temp;
+}
