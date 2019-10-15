@@ -1,0 +1,14 @@
+.low-usage {
+  color: darkgreen;
+  background-color: lightgreen;
+}
+
+.medium-usage {
+  color: black;
+  background-color: lightgrey;
+}
+
+.high-usage {
+  color: darkred;
+  background-color: pink;
+}

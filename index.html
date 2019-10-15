@@ -1,19 +1,40 @@
 <!DOCTYPE html>
-<html>
+<html  id="style">
+<!-- <style>
+html { background : grey; }
+</style> -->
   <head>
+    <link rel="stylesheet" href="styles.css">
     <title>Thermostat</title>
   </head>
   <body>
-    <section>
-      <h1 id="temperature"></h1>
-      <p>
-        <button id="temperature-up">+</button>
-        <button id="temperature-down">-</button>
-        <button id="temperature-reset">reset</button>
-        power saving mode is <span id="power-saving-status">on</span>
-        <button id="powersaving-on">PSM on</button>
-        <button id="powersaving-off">PSM off</button>
-      </p>
-    </section>
+    <center>
+      <section>
+        <h1 id="temperature"></h1>
+        <p>
+          <button id="temperature-up">+</button>
+          <input id="amount" type="text" value="1">
+          <button id="temperature-down">-</button>
+          <br>
+          <button id="temperature-reset">reset</button>
+          <br>
+          <br>
+          power saving mode is <span id="power-saving-status">on</span>
+          <br>
+          <button id="powersaving-on">PSM on</button>
+          <button id="powersaving-off">PSM off</button>
+          <br>
+          <br>
+          <span id="power-usage">medium-usage</span>
+        </p>
+      </section>
+    </center>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.js"
+      integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+      crossorigin="anonymous">
+    </script>
+    <script src="src/interface.js"></script>
+    <script src="src/thermostat.js"></script>
   </body>
 </html>
