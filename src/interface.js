@@ -1,5 +1,14 @@
 $(document).ready(function() {
   var thermostat = new Thermostat();
+
+  $.get('http://localhost:9292/temperature', function(data) {
+    obj = JSON.parse(data)
+
+    thermostat._temp = obj.temp
+    thermostat._isPowerSaving = obj.power
+    $('#temperature').text(thermostat._temp);
+  });
+
   updateTemperature();
   displayWeather('london')
 
@@ -47,7 +56,7 @@ $(document).ready(function() {
     var appid = '&appid=a3d9eb01d4de82b9b8d0849ef604dbed';
     var unit = '&units=metric';
     $.get(url+appid+unit, function(data) {
-      $('#current-weather').text(data.name + ": " + data.main.temp);
+      $('#current-weather').text(`${data.name}, ${data.sys.country}: ${data.main.temp}`);
     })
   }
 })

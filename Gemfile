@@ -8,6 +8,8 @@ git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
 
 ruby '2.6.3'
 gem 'rubocop', '0.71.0'
+gem 'sinatra'
+gem 'rack'
 
 group :test do
   gem 'rspec'
