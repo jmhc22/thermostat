@@ -29,7 +29,7 @@ $(document).ready(function() {
   })
 
   function updateTemperature() {
-    $('#temperature').text(thermostat._temp);
+    $('#temperature').text(thermostat.current());
     $('#power-usage').text(thermostat.usage());
     $('#temperature').attr('class', thermostat.usage());
     $('#style').attr('class', thermostat.usage());

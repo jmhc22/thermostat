@@ -1,18 +1,20 @@
 function Thermostat() {
   this._temp = 20;
   this._isPowerSaving = true;
-  if(this._isPowerSaving === true) {
-    this._tempLimit = 25;
-  } else {
-    this._tempLimit = 32;
+  this._tempLimit = function() {
+      if(this._isPowerSaving) {
+      return 25;
+    } else {
+      return 32;
+    }
   }
 }
 
 Thermostat.prototype.up = function(number) {
-  if(this._temp + number <= this._tempLimit) {
+  if(this._temp + number <= this._tempLimit()) {
     this._temp += number;
   } else {
-    this._temp = this._tempLimit;
+    this._temp = this._tempLimit();
   }
 }
 
@@ -30,12 +32,10 @@ Thermostat.prototype.current = function() {
 
 Thermostat.prototype.togglePowerSavingOff = function() {
   this._isPowerSaving = false;
-  this._tempLimit = 32;
 }
 
 Thermostat.prototype.togglePowerSavingOn = function() {
   this._isPowerSaving = true;
-  this._tempLimit = 25;
   if(this._temp > 25) {
     this._temp = 25;
   }

@@ -61,9 +61,17 @@ describe("Thermostat", function() {
       expect(thermostat.current()).toEqual(10);
     });
 
-    it('if down number makes tenp go below 10 temp will be 10', function() {
+    it('if down number makes temp go below 10 will still only be set to 10', function() {
       thermostat.down(15);
       expect(thermostat.current()).toEqual(10);
+    });
+
+    it('if temp is above 25 and you turn on power saving it will snap down to 25', function() {
+      thermostat.togglePowerSavingOff();
+      thermostat.up(8);
+      expect(thermostat.current()).toEqual(28);
+      thermostat.togglePowerSavingOn();
+      expect(thermostat.current()).toEqual(25);
     });
   });
 
