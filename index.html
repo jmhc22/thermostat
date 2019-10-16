@@ -2,6 +2,7 @@
 <html  id="style">
   <head>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <title>Thermostat</title>
   </head>
   <body>
@@ -9,9 +10,9 @@
       <section>
         <h1 id="temperature"></h1>
         <p>
-          <button id="temperature-up">+</button>
-          <input style="text-align:center;" id="amount" type="text" value="1">
           <button id="temperature-down">-</button>
+          <input style="text-align:center;" id="amount" type="text" value="1">
+          <button id="temperature-up">+</button>
           <br>
           <button id="temperature-reset">reset</button>
           <br>
@@ -24,6 +25,7 @@
           <br>
           <span id="power-usage">medium-usage</span>
         </p>
+        temp in  <span id="current-weather"></span><span>&#8451;</span>
       </section>
     </center>
     <script
