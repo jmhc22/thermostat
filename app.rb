@@ -1,18 +1,31 @@
 require 'sinatra'
 require 'sinatra/base'
 require 'json'
+require_relative './lib/saved_data'
 
 class Thermostat < Sinatra::Base
-  enable :sessions
+
+  before do
+    @data = SavedData.instance
+  end
 
   get '/temperature' do
     headers 'Access-Control-Allow-Origin' => '*'
-    { temp: 18, power: false }.to_json
+    { temp: @data.temp, power: @data.powersaving, location: @data.location }.to_json
   end
 
-  post '/temperature' do
+  post '/temp' do
     headers 'Access-Control-Allow-Origin' => '*'
-    p params[:temperature]
+    @data.temp = params[:temperature]
   end
 
+  post '/powersaving' do
+    headers 'Access-Control-Allow-Origin' => '*'
+    @data.powersaving = params[:powersaving]
+  end
+
+  post '/location' do
+    headers 'Access-Control-Allow-Origin' => '*'
+    @data.location = params[:location]
+  end
 end

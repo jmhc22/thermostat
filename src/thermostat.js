@@ -41,6 +41,14 @@ Thermostat.prototype.togglePowerSavingOn = function() {
   }
 }
 
+Thermostat.prototype.isSaving = function() {
+  if(this._isPowerSaving) {
+    return "on"
+  } else {
+    return "off"
+  }
+}
+
 Thermostat.prototype.reset = function() {
   this._temp = 20;
 }
